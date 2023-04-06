@@ -1,0 +1,46 @@
+<div class="navbar fixed-top navbar-expand-sm navbar-light navbar-lewagon" style="height: 150px;">
+  <div class="container-fluid">
+    <%= link_to wohnungs_path, class: "navbar-brand" do %>
+      <div style="height: 100px; width: 200px; margin-left: 20%;">
+        <%= image_tag asset_path('altestanzerei_logo'), style:"height: 110px; width: 210px;" %>
+      </div>
+    <% end %>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <% if user_signed_in? %>
+          <li class="nav-item active">
+            <%= link_to "Startseite", root_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item dropdown">
+            <%= link_to wohnungs_path, class: "avatar-bordered", id: "navbarDropdown", style:"text-decoration:none;", data: { bs_toggle: "dropdown" }, aria_haspopup: "true", aria_expanded: "false" do %>
+              <div class="nav-link">Ferienwohnungen</div>
+            <% end %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Übersicht", wohnungs_path, class: "dropdown-item" %>
+              <%= link_to "Wohnung 1", wohnung_path(1), class: "dropdown-item" %>
+              <%= link_to "Wohnung 2", wohnung_path(2), class: "dropdown-item" %>
+              <%= link_to "Wohnung 3", wohnung_path(3), class: "dropdown-item" %>
+              <%= link_to "Wohnung 4", wohnung_path(4), class: "dropdown-item" %>
+              <%= link_to "Wohnung 5", wohnung_path(5), class: "dropdown-item" %>
+              <%= link_to "Wohnung 7", wohnung_path(6), class: "dropdown-item" %>
+              <%= link_to "Wohnung 8", wohnung_path(7), class: "dropdown-item" %>
+              <%= link_to "Wohnung 11", wohnung_path(8), class: "dropdown-item" %>
+              <%# <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+            </div>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Anfragen/Kontakt", new_wohnung_anfrage_path(1), class: "nav-link" %>
+          </li>
+           <li class="nav-item">
+            <%= link_to "Impressum", impressum_path, class: "nav-link" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

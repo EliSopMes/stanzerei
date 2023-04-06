@@ -1,0 +1,2 @@
+class Anfrage < ApplicationRecord
+end

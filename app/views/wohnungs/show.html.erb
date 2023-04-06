@@ -1,0 +1,17 @@
+<h2><%= @wohnung.name %></h2>
+<p><%= @wohnung.beschreibung %></p>
+<p>Es handelt sich um eine Nichtraucherwohnung!</p>
+<p>Die Grundmieten beinhalten die Kosten für Strom, und Heizung, Endreinigung (bzw. bei längerer Anmietung monatlicher Reinigung) Bettwäsche, Handtücher (wird bei längerer Anmietung nicht gestellt</p>
+<p>Preis pro Nacht: <%= @wohnung.preis %>€</p>
+<p>(Mindestens 2 Nächte für 1 bis 2 Personen, jede weitere Person zzgl. € 9,30 pro Nacht, 0-6 Jahre: kostenlos, 6-16 Jahre: € 4,65)</p>
+<ul>
+  <li>0 - 6 Nächte: € 83,- pro Nacht</li>
+  <li>7 - 20 Nächte: € 72,- pro Nacht</li>
+  <li>21 - 29 Nächte: € 62,- pro Nacht</li>
+  <li><%= link_to "längere Mietdauer zu Sonderkonditionen bitte anfragen!", new_wohnung_anfrage_path(@wohnung), class:"links" %></li>
+</ul>
+<%= link_to "Anfrage senden", new_wohnung_anfrage_path(@wohnung.id), class:"btn1" %>
+
+<div>
+  <%= render "shared/carousel" %>
+</div>

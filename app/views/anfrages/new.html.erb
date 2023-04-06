@@ -1,0 +1,24 @@
+<h2>Wohnung anfragen</h2>
+<%= simple_form_for [@wohnung, @anfrage] do |f| %>
+  <%= f.error_notification %>
+  <div class="d-flex justify-content-between">
+    <%= f.input :von, start_year: Date.today.year %>
+    <%= f.input :bis, start_year: Date.today.year %>
+    <%= f.label "Anzahl Gäste" %>
+    <%= f.input :anzahl, label: false %>
+  </div>
+  <br>
+  <div class="d-flex">
+    <%= f.label "Vorname, Nachname" %>
+    <%= f.input :vorname_nachname, label: false %>
+    <%= f.label "Straße" %>
+    <%= f.input :strasse, label: false %>
+    <%= f.label "Postleitzahl" %>
+    <%= f.input :plz_ort, label: false %>
+    <%= f.label "Telefonnummer" %>
+    <%= f.input :telefon, label: false %>
+    <%= f.label "Email-Adresse" %>
+    <%= f.input :email, label: false %>
+  </div>
+  <%= f.submit "Anfrage schicken", class:"btn1" %>
+<% end %>

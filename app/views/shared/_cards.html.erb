@@ -1,0 +1,12 @@
+<div class="cards">
+  <% @wohnungen.each do |wohnung|%>
+    <%= link_to wohnung_path(wohnung), style:"text-decoration:none;" do %>
+      <div class="cards-round">
+        <%= image_tag "altestanzerei_logo", class: "card-img-top event-img" %>
+        <div class="index-card">
+          <%= wohnung.name %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

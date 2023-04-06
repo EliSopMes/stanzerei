@@ -1,0 +1,28 @@
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: auto;
+  grid-gap: 1rem;
+}
+
+.index-card {
+  flex: 0 1 500px;
+  box-sizing: border-box;
+  padding: 1rem .25em;
+  text-align: center;
+  text-decoration: none;
+  font-family: 'Cabin', sans-serif;
+  font-size: larger;
+  background-color: #A11935;
+  border: #961730;
+  color: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.cards-round {
+  border-radius: 5px;
+}
+
+.hyperlink-remove {
+  text-decoration: none;
+}
