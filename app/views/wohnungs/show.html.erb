@@ -1,16 +1,52 @@
-<h2><%= @wohnung.name %></h2>
-<p><%= @wohnung.beschreibung %></p>
-<p>Es handelt sich um eine Nichtraucherwohnung!</p>
-<p>Die Grundmieten beinhalten die Kosten für Strom, und Heizung, Endreinigung (bzw. bei längerer Anmietung monatlicher Reinigung) Bettwäsche, Handtücher (wird bei längerer Anmietung nicht gestellt</p>
-<p>Preis pro Nacht: <%= @wohnung.preis %>€</p>
-<p>(Mindestens 2 Nächte für 1 bis 2 Personen, jede weitere Person zzgl. € 9,30 pro Nacht, 0-6 Jahre: kostenlos, 6-16 Jahre: € 4,65)</p>
-<ul>
-  <li>0 - 6 Nächte: € 83,- pro Nacht</li>
-  <li>7 - 20 Nächte: € 72,- pro Nacht</li>
-  <li>21 - 29 Nächte: € 62,- pro Nacht</li>
-  <li><%= link_to "längere Mietdauer zu Sonderkonditionen bitte anfragen!", new_wohnung_anfrage_path(@wohnung), class:"links" %></li>
-</ul>
-<%= link_to "Anfrage senden", new_wohnung_anfrage_path(@wohnung.id), class:"btn1" %>
+<div class="d-flex justify-content-between">
+  <div>
+    <div class="d-flex mb-4">
+      <h2><%= @wohnung.name.upcase %></h2>
+      <h5 class="mb-2" style="margin-left:20px; margin-top:10px;"> (ca. <%= @wohnung.square_meters %> ㎡)</h5>
+    </div>
+    <%# <%= link_to "Anfrage senden", new_wohnung_anfrage_path(@wohnung.id), class:"btn1" %>
+    <div class="d-flex">
+      <div>
+        <div class="row">
+          <h5 class="mb-3">AUSSTATTUNG</h5>
+          <div class="col">
+            <p><i class="fa-solid fa-bed"></i> Doppelbett</p>
+            <% if @wohnung.galerie_da == true %>
+              <p><%=  %><i class="fa-solid fa-turn-up"></i> Galerie </p>
+            <% end %>
+            <p><i class="fa-solid fa-kitchen-set"></i> vollausgestattete Küche</p>
+            <p><i class="fa-solid fa-shower"></i> Bad mit Dusche & WC</p>
+            <p><i class="fa-solid fa-couch"></i> Sofa</p>
+          </div>
+          <div class="col">
+            <p><i class="fa-solid fa-tv"></i> Fernseher</p>
+            <p><i class="fa-regular fa-sun"></i> Balkon mit Möbel</p>
+            <p><i class="fa-solid fa-wifi"></i> Internet (nur mit Kabel)</p>
+            <p><i class="fa-solid fa-square-parking"></i> Parkplatz</p>
+            <p><i class="fa-solid fa-droplet"></i> inkl. Wasser</p>
+          </div>
+        </div>
+        <br>
+        <p><i class="fa-solid fa-ban-smoking"></i> Nichtraucherwohnung!</p>
+        <p>Die Grundmieten beinhalten die Kosten für Strom, und Heizung, Endreinigung (bzw. bei längerer Anmietung monatlicher Reinigung) Bettwäsche, Handtücher (wird bei längerer Anmietung nicht gestellt</p>
+      </div>
+    </div>
+  </div>
+  <div class="anfrage-window">
+    <%= render "anfrage" %>
+  </div>
+</div>
+  <div style="width:40%;">
+    <p>Preis pro Nacht: <%= @wohnung.preis %>€</p>
+    <p>(Mindestens 2 Nächte für 1 bis 2 Personen, jede weitere Person zzgl. € 9,30 pro Nacht, 0-6 Jahre: kostenlos, 6-16 Jahre: € 4,65)</p>
+    <ul>
+      <li>0 - 6 Nächte: € 83,- pro Nacht</li>
+      <li>7 - 20 Nächte: € 72,- pro Nacht</li>
+      <li>21 - 29 Nächte: € 62,- pro Nacht</li>
+      <li><%= link_to "längere Mietdauer zu Sonderkonditionen bitte anfragen!", new_wohnung_anfrage_path(@wohnung), class:"links" %></li>
+    </ul>
+  </div>
+</div>
 
 <div>
   <%= render "shared/carousel" %>

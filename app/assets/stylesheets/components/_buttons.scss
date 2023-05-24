@@ -3,16 +3,37 @@
   border-radius: 5px;
   text-decoration: none;
   color: white;
-  padding: 8px 13px;
+  padding: 6px 11px;
+  height: 40px;
   border: 1px solid #991831;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   font-weight: 600;
 }
 
 .btn1:hover {
-  background-color: #fbf4f6;
+  background-color: #e9dfe2;
   color: #A11935;
   border: 1px solid #A11935;
+  font-weight: 600;
+}
+
+.btn2 {
+  background-color: #FCEDF0;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #A11935;
+  padding: 6px 11px;
+  height: 40px;
+  border: 1px solid #f3e5e8;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  font-weight: 600;
+  width: 470px;
+}
+
+.btn2:hover {
+  background-color: #A11935;
+  color: #FCEDF0;
+  border: 1px solid #FCEDF0;
   font-weight: 600;
 }
 

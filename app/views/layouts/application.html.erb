@@ -11,12 +11,12 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body style="background-color: #fbf4f6;">
+  <body style="background-color: #fbf4f6; font-">
     <%= render "shared/navbar" %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= render "shared/flashes" %>
-    <div class="container py-5" style="margin-top:150px;">
+    <div class="container py-2" style="margin-top:150px;">
       <%= yield %>
     </div>
   </body>

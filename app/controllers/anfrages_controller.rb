@@ -1,7 +1,6 @@
 class AnfragesController < ApplicationController
   def new
     @anfrage = Anfrage.new
-    @wohnung = Wohnung.find(params[:wohnung_id])
   end
 
   def create

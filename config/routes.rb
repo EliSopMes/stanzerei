@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   resources :wohnungs do
     resources :anfrages, only: %i[new create]
   end
-
+  
+  get 'anfrages/new', to: 'anfrages#new'
   get 'pages/impressum', to: 'pages#impressum', as: 'impressum'
   get 'pages/agbs', to: 'pages#agbs', as: 'agbs'
 end

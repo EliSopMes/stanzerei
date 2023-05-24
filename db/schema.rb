@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_05_100020) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_24_144737) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "action_mailbox_inbound_emails", force: :cascade do |t|
+    t.integer "status", default: 0, null: false
+    t.string "message_id", null: false
+    t.string "message_checksum", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["message_id", "message_checksum"], name: "index_action_mailbox_inbound_emails_uniqueness", unique: true
+  end
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -75,7 +84,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_05_100020) do
 
   create_table "wohnungs", force: :cascade do |t|
     t.string "name"
-    t.text "beschreibung"
+    t.text "square_meters"
     t.integer "preis"
     t.string "wohnzimmer"
     t.string "bad"
@@ -86,6 +95,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_05_100020) do
     t.string "schlafzimmer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "galerie_da", default: false
+    t.integer "anzahl_zimmer"
+    t.string "wohnzimmer_da", default: "Wohnzimmer"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

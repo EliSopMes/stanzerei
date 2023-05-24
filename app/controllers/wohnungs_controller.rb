@@ -5,6 +5,7 @@ class WohnungsController < ApplicationController
 
   def show
     @wohnung = Wohnung.find(params[:id])
+    @anfrage = Anfrage.new
   end
 
   def new
@@ -23,7 +24,8 @@ class WohnungsController < ApplicationController
   private
 
   def wohnungen_params
-    params.require(:wohnung).permit(:name, :beschreibung, :preis, :wohnzimmer, :bad, :balkon,
-                                    :esszimmer, :galerie, :küche, :schlafzimmer, :photos)
+    params.require(:wohnung).permit(:name, :square_meters, :preis, :wohnzimmer, :bad, :balkon,
+                                    :esszimmer, :galerie, :küche, :schlafzimmer, :photos, :galerie?, :wohnzimmer?,
+                                  :anzahl_zimmer)
   end
 end
