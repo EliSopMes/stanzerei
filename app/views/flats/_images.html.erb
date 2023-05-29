@@ -1,0 +1,41 @@
+<div data-controller="carousel">
+  <div data-glider-target="swiper" class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <% @flats.photos.each do |photo| %>
+        <div class="swiper-slide wohnzimmer" style="background-image: url('<%= cl_image_path(photo.key, height: 300, background_size: :cover) %>');"><%= photo.filename %></div>
+      <% end %>
+    </div>
+    <div data-glider-target="pago" class="swiper-pagination"></div>
+  </div>
+</div>
+
+
+      <%# <div class="swiper-slide">
+        <div class="quittiger-bg">
+        <h1>Quitetiger</h1>
+        <div class="quittiger-layer-x"></div>
+        </div>
+      </div> %>
+
+<!-- Slider main container -->
+<%# <div data-controller="carousel" class="swiper-container w-25 my-5"
+  data-carousel-options-value='{
+    "pagination": { "el": ".swiper-pagination",
+                    "dynamicBullets": "true" },
+    "navigation": { "nextEl": ".swiper-button-next",
+                    "prevEl": ".swiper-button-prev"}}'> %>
+  <!-- Additional required wrapper -->
+  <%# <div class="swiper mySwiper swiper-initialized swiper-horizontal swiper-backface-hidden">
+    <div class="swiper-pagination"></div>
+
+    <!-- Navigation buttons (< >) -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-wrapper">
+    <% @wohnung.photos.each do |photo| %>
+      <!-- Slides -->
+    <%# <% end %>
+    <%# </div>
+  </div> %> %>
+
+<%# </div> %> %> %>

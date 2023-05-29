@@ -17,6 +17,10 @@ gem "puma", "~> 5.0"
 
 gem "dotenv-rails", groups: [:development, :test]
 
+gem "cloudinary"
+
+gem "webpacker"
+
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem "jsbundling-rails"
 

@@ -1,10 +1,11 @@
 <div class="cards">
-  <% @wohnungen.each do |wohnung|%>
-    <%= link_to wohnung_path(wohnung), style:"text-decoration:none;" do %>
+  <% @flats.each do |flat|%>
+    <%= link_to flat_path(flat), style:"text-decoration:none;" do %>
       <div class="cards-round">
-        <%= image_tag "altestanzerei_logo", class: "card-img-top event-img" %>
-        <div class="index-card">
-          <%= wohnung.name %>
+        <%= cl_image_tag flat.photos.first.key, width: 422, crop: :fill %>
+        <div class="index-card d-flex justify-content-between">
+          <h4 class="px-2"><%= flat.name %></h4>
+          <div class="px-2"><%= flat.square_meters %>㎡</div>
         </div>
       </div>
     <% end %>

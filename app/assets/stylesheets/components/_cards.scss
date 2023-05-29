@@ -3,7 +3,13 @@
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: auto;
   grid-gap: 1rem;
+  // display: flex;
+  // flex-direction: row;
+  // flex-wrap: wrap;
+  // width: 100%;
+  // gap: 10px;
 }
+
 
 .index-card {
   flex: 0 1 500px;
@@ -21,6 +27,7 @@
 
 .cards-round {
   border-radius: 5px;
+  // flex: 33.33%;
 }
 
 .hyperlink-remove {

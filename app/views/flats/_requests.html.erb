@@ -1,0 +1,43 @@
+<h4 style=" margin-bottom:20px;"><strong>Wohnung anfragen:</strong></h4>
+<%= simple_form_for [@flat, @request] do |f| %>
+  <%= f.error_notification %>
+  <div class="d-flex">
+    <%= f.input :from,
+                 as: :date,
+                 autofocus: true,
+                 label: "Von:",
+                 required: false,
+                 html5: true,
+                 class: "form-control" %>
+    <%= f.input :to,
+                 as: :date,
+                 autofocus: true,
+                 label: "Bis:",
+                 required: false,
+                 html5: true,
+                 class: "form-control" %>
+    <%= f.input :number_guests, class:"small-input", label: "# Gäste", :input_html => {:style=> 'width: 75px; margin-left:5px;'} %>
+  </div>
+  <br>
+  <div class="d-flex">
+    <%= f.input :first_name, label: "Vorname", input_html: { style:"width:230px; margin-right:10px;" } %>
+    <%= f.input :last_name, label: "Nachname", input_html: { style:"width:230px;" } %>
+  </div>
+  <div class="d-flex">
+    <%= f.input :street, label: "Straße", input_html: { style:"width:380px; margin-right:10px;" } %>
+    <%= f.input :house_number, label: "Nr.", :input_html => {:style=> 'width: 80px'} %>
+  </div>
+  <div class="d-flex">
+    <%= f.input :postal_code, label: "PLZ", input_html: { style:"width:180px; margin-right:10px;" }%>
+    <%= f.input :city, label: "Ort", input_html: { style:"width:280px;" } %>
+  </div>
+  <div class="d-flex">
+    <%= f.input :phone, label: "Telefonnummer", input_html: { style:"width:200px; margin-right:10px;" } %>
+    <%= f.input :email, label: "Email", input_html: { style:"width:260px;" } %>
+  </div>
+  <div class="d-flex">
+    <%= f.input :message, label: "Nachricht", input_html: { style:"width:470px;" }%>
+  </div>
+  <br>
+  <%= f.submit "Anfrage schicken", class:"btn2" %>
+<% end %>

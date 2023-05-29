@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_24_144737) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_29_124516) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -51,23 +51,34 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_24_144737) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "anfrages", force: :cascade do |t|
-    t.bigint "wohnung_id"
-    t.date "von"
-    t.date "bis"
-    t.integer "anzahl"
-    t.string "vorname"
-    t.string "strasse"
-    t.string "plz"
-    t.string "telefon"
-    t.string "email"
-    t.text "nachricht"
+  create_table "flats", force: :cascade do |t|
+    t.string "name"
+    t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "nachname"
-    t.integer "nummer"
-    t.string "ort"
-    t.index ["wohnung_id"], name: "index_anfrages_on_wohnung_id"
+    t.boolean "galerie_da", default: false
+    t.integer "number_rooms"
+    t.string "wohnzimmer_da", default: "Wohnzimmer"
+    t.integer "square_meters"
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.integer "number_guests"
+    t.string "first_name"
+    t.string "street"
+    t.string "postal_code"
+    t.string "phone"
+    t.string "email"
+    t.text "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "last_name"
+    t.integer "house_number"
+    t.string "city"
+    t.bigint "flat_id"
+    t.date "from"
+    t.date "to"
+    t.index ["flat_id"], name: "index_requests_on_flat_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -82,24 +93,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_24_144737) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "wohnungs", force: :cascade do |t|
-    t.string "name"
-    t.text "square_meters"
-    t.integer "preis"
-    t.string "wohnzimmer"
-    t.string "bad"
-    t.string "balkon"
-    t.string "esszimmer"
-    t.string "galerie"
-    t.string "kueche"
-    t.string "schlafzimmer"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean "galerie_da", default: false
-    t.integer "anzahl_zimmer"
-    t.string "wohnzimmer_da", default: "Wohnzimmer"
-  end
-
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "requests", "flats"
 end
