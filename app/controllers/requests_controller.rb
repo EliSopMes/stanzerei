@@ -10,6 +10,7 @@ class RequestsController < ApplicationController
     @request.flat = @flat
     if @request.save
       # requestMailer.with(request: @request).request_email.deliver_later
+      p NotifierMailer.alert_request.deliver_later
       redirect_to flat_path(@flat)
 
       # format.html { redirect_to(@flat, notice: 'request was sent successfully.') }
