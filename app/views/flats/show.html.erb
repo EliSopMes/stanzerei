@@ -1,5 +1,10 @@
 <div class="d-flex justify-content-between my-4">
   <div>
+    <% if params[:requested].present? %>
+      <div class="request-sent">
+        <p>Wir haben deine Anfrage erhalten. Du wirst bald von uns hören!</p>
+      </div>
+    <% end %>
     <div class="d-flex mb-4">
       <h2><%= @flat.name.upcase %></h2>
       <h5 class="mb-2" style="margin-left:20px; margin-top:10px;"> (ca. <%= @flat.square_meters %> ㎡)</h5>
@@ -7,8 +12,18 @@
     <%# <%= link_to "Anfrage senden", new_flat_anfrage_path(@flat.id), class:"btn1" %>
     <div class="d-flex">
       <div>
+        <div class="image-gallery" style="width: 750px; height:350px;">
+          <%= render "images" %>
+        </div>
         <div class="row">
           <h5 class="mb-3">AUSSTATTUNG</h5>
+          <div class="col">
+            <p><i class="fa-solid fa-tv"></i> Fernseher</p>
+            <p><i class="fa-regular fa-sun"></i> Balkon mit Möbel</p>
+            <p><i class="fa-solid fa-wifi"></i> Internet (mit Kabel)</p>
+            <p><i class="fa-solid fa-square-parking"></i> Parkplatz</p>
+            <p><i class="fa-solid fa-droplet"></i> inkl. Wasser</p>
+          </div>
           <div class="col">
             <p><i class="fa-solid fa-bed"></i> Doppelbett</p>
             <% if @flat.galerie_da == true %>
@@ -18,20 +33,10 @@
             <p><i class="fa-solid fa-shower"></i> Bad mit Dusche & WC</p>
             <p><i class="fa-solid fa-couch"></i> Sofa</p>
           </div>
-          <div class="col">
-            <p><i class="fa-solid fa-tv"></i> Fernseher</p>
-            <p><i class="fa-regular fa-sun"></i> Balkon mit Möbel</p>
-            <p><i class="fa-solid fa-wifi"></i> Internet (nur mit Kabel)</p>
-            <p><i class="fa-solid fa-square-parking"></i> Parkplatz</p>
-            <p><i class="fa-solid fa-droplet"></i> inkl. Wasser</p>
-          </div>
         </div>
         <br>
         <p><i class="fa-solid fa-ban-smoking"></i> Nichtraucherwohnung!</p>
-        <p>Die Grundmieten beinhalten die Kosten für Strom, und Heizung, Endreinigung (bzw. bei längerer Anmietung monatlicher Reinigung) Bettwäsche, Handtücher (wird bei längerer Anmietung nicht gestellt</p>
-        <div class="image-gallery" style="width: 750px; height:500px;">
-          <%= render "images" %>
-        </div>
+        <p style="width: 750px;">Die Grundmieten beinhalten die Kosten für Strom, und Heizung, Endreinigung (bzw. bei längerer Anmietung monatlicher Reinigung) Bettwäsche, Handtücher (wird bei längerer Anmietung nicht gestellt</p>
       </div>
     </div>
   </div>

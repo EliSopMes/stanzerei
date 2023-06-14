@@ -42,7 +42,21 @@ Rails.application.configure do
   # config.action_mailer.raise_deliveries = true
   # config.action_mailer.perform_caching = false
 
+  # the following config action_mailer are important for sending emails(requests)
+  config.action_mailer.delivery_method = :smtp
+
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                 587,
+    domain:               'localhost',
+    user_name:            'elisabethopinc@gmail.com',
+    password:             ENV['MAILER_KEY'],
+    authentication:       'plain',
+    enable_starttls_auto: true
+  }
+
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

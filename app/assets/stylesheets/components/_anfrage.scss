@@ -6,3 +6,18 @@
   padding: 15px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
+
+.request-sent {
+  background-color: #F4B9C5;
+  border: 1px solid #dfa7b2;
+  border-radius: 3px;
+  margin-bottom: 40px;
+  margin-top: 10px;
+  margin-right: 20px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.request-sent p {
+  padding-top: 3px;
+}

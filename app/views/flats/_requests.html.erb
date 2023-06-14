@@ -5,14 +5,14 @@
     <%= f.input :from,
                  as: :date,
                  autofocus: true,
-                 label: "Von:",
+                 label: "Von: *",
                  required: false,
                  html5: true,
                  class: "form-control" %>
     <%= f.input :to,
                  as: :date,
                  autofocus: true,
-                 label: "Bis:",
+                 label: "Bis: *",
                  required: false,
                  html5: true,
                  class: "form-control" %>
@@ -32,8 +32,8 @@
     <%= f.input :city, label: "Ort", input_html: { style:"width:280px;" } %>
   </div>
   <div class="d-flex">
-    <%= f.input :phone, label: "Telefonnummer", input_html: { style:"width:200px; margin-right:10px;" } %>
-    <%= f.input :email, label: "Email", input_html: { style:"width:260px;" } %>
+    <%= f.input :phone, label: "Telefonnummer *", input_html: { style:"width:200px; margin-right:10px;" } %>
+    <%= f.input :email, label: "Email *", input_html: { style:"width:260px;" } %>
   </div>
   <div class="d-flex">
     <%= f.input :message, label: "Nachricht", input_html: { style:"width:470px;" }%>

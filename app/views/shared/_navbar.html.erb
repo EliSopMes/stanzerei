@@ -8,38 +8,32 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Startseite", root_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item dropdown">
-            <%= link_to flats_path, class: "avatar-bordered", id: "navbarDropdown", style:"text-decoration:none;", data: { bs_toggle: "dropdown" }, aria_haspopup: "true", aria_expanded: "false" do %>
-              <div class="nav-link">Ferienwohnungen</div>
-            <% end %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Übersicht", flats_path, class: "dropdown-item" %>
-              <%= link_to "Wohnung 1", flat_path(1), class: "dropdown-item" %>
-              <%= link_to "Wohnung 2", flat_path(2), class: "dropdown-item" %>
-              <%= link_to "Wohnung 3", flat_path(3), class: "dropdown-item" %>
-              <%= link_to "Wohnung 4", flat_path(4), class: "dropdown-item" %>
-              <%= link_to "Wohnung 5", flat_path(5), class: "dropdown-item" %>
-              <%= link_to "Wohnung 7", flat_path(6), class: "dropdown-item" %>
-              <%= link_to "Wohnung 8", flat_path(7), class: "dropdown-item" %>
-              <%= link_to "Wohnung 11", flat_path(8), class: "dropdown-item" %>
-              <%# <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
-          </li>
+        <li class="nav-item active">
+          <%= link_to "Startseite", root_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item dropdown">
+          <%= link_to flats_path, class: "avatar-bordered", id: "navbarDropdown", style:"text-decoration:none;", data: { bs_toggle: "dropdown" }, aria_haspopup: "true", aria_expanded: "false" do %>
+            <div class="nav-link">Ferienwohnungen</div>
+          <% end %>
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <%= link_to "Übersicht", flats_path, class: "dropdown-item" %>
+            <%= link_to "Wohnung 1", flat_path(1), class: "dropdown-item" %>
+            <%= link_to "Wohnung 2", flat_path(2), class: "dropdown-item" %>
+            <%= link_to "Wohnung 3", flat_path(3), class: "dropdown-item" %>
+            <%= link_to "Wohnung 4", flat_path(4), class: "dropdown-item" %>
+            <%= link_to "Wohnung 5", flat_path(5), class: "dropdown-item" %>
+            <%= link_to "Wohnung 7", flat_path(6), class: "dropdown-item" %>
+            <%= link_to "Wohnung 8", flat_path(7), class: "dropdown-item" %>
+            <%= link_to "Wohnung 11", flat_path(8), class: "dropdown-item" %>
+            <%# <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+          </div>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Anfragen/Kontakt", requests_new_path, class: "nav-link" %>
+        </li>
           <li class="nav-item">
-            <%= link_to "Anfragen/Kontakt", requests_new_path, class: "nav-link" %>
-          </li>
-           <li class="nav-item">
-            <%= link_to "Impressum", impressum_path, class: "nav-link" %>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
+          <%= link_to "Impressum", impressum_path, class: "nav-link" %>
+        </li>
       </ul>
     </div>
   </div>

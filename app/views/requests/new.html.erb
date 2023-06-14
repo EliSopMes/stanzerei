@@ -1,40 +1,38 @@
 <div class="kontakt-seite">
   <h2>Wohnung anfragen</h2>
-  <%= simple_form_for requests_new_path do |f| %>
+  <%= simple_form_for(@request, url: requests_create_path) do |f| %>
     <%= f.error_notification %>
     <div class="d-flex">
-    <%= f.input :flat, collection: @flats, :input_html => {:style=> 'width: 200px; margin-right: 10px; '} %>
+    <%= f.input :flat, label: "Wohnung", collection: @flats, :input_html => {:style=> 'width: 200px; margin-right: 10px;'}, error: 'Bitte ausfüllen'%>
     <div class="d-flex">
       <%= f.input :from,
                   as: :date,
                   autofocus: true,
-                  label: "Von:",
+                  label: "Von: *",
                   required: false,
                   html5: true,
-                  class: "form-control" %>
+                  class: "form-control",
+                  error: 'Bitte ausfüllen' %>
       <%= f.input :to,
                   as: :date,
                   autofocus: true,
-                  label: "Bis:",
+                  label: "Bis: *",
                   required: false,
                   html5: true,
-                  class: "form-control" %>
-      <%= f.input :number_guests, class:"small-input", label: "#Gäste", :input_html => {:style=> 'width: 75px; margin-left:5px;'} %>
+                  class: "form-control",
+                  error: 'Bitte ausfüllen' %>
+      <%= f.input :number_guests, class:"small-input", label: "#Gäste", :input_html => {:style=> 'width: 75px; margin-left:5px;'}, error: 'Bitte ausfüllen'  %>
     </div>
     </div>
     <hr>
     <br>
     <div class="d-flex">
-      <%= f.input :first_name, label: "Vorname" %>
-      <%= f.input :nachname, label: "Nachname", :input_html => {:style=> ' margin-left:5px;'} %>
-      <%# <%= f.input :strasse, label: "Straße", :input_html => {:style=> 'margin-left:20px;'} %>
-      <%# <%= f.input :nummer, label: "Nummer", :input_html => {:style=> 'width: 60px; margin-left:5px;'} %>
-      <%# <%= f.input :plz, label: "Postleitzahl", :input_html => {:style=> 'width: 100px'} %>
-      <%# <%= f.input :ort %>
+      <%= f.input :first_name, label: "Vorname", :input_html => {:style=> 'width: 300px;'}, error: 'Bitte ausfüllen'  %>
+      <%= f.input :last_name, label: "Nachname", :input_html => {:style=> ' margin-left:5px; width: 300px;'}, error: 'Bitte ausfüllen' %>
     </div>
     <div class="d-flex">
-      <%= f.input :phone, label: "Telefonnummer" %>
-      <%= f.input :email, label: "Email-Adresse", :input_html => {:style=> 'margin-left:5px;'} %>
+      <%= f.input :phone, label: "Telefonnummer *", :input_html => {:style=> 'width: 300px;'}, error: 'Bitte eins der Kontakfelder ausfüllen' %>
+      <%= f.input :email, label: "Email-Adresse *", :input_html => {:style=> 'margin-left:5px; width: 300px;'}, error: 'Bitte eins der Kontakfelder ausfüllen' %>
     </div>
     <div class="d-flex">
       <%= f.input :message , label: "Nachricht", as: :text, :input_html => {:style=> 'width: 700px; height: '} %>
