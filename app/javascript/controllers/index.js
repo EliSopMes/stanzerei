@@ -7,11 +7,9 @@ import { application } from "./application"
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
-import CarouselController from "./carousel_controller"
-application.register("carousel", CarouselController)
 
-import DropdownController from "./dropdown_controller"
-application.register("dropdown", DropdownController)
+// import DropdownController from "./dropdown_controller"
+// application.register("dropdown", DropdownController)
 
 
 // stimulus instructions
