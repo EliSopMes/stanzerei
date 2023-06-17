@@ -21,6 +21,8 @@ gem "cloudinary"
 
 gem "webpacker"
 
+gem 'rails_12factor', group: :production
+
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem "jsbundling-rails"
 

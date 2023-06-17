@@ -35,13 +35,13 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
 
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'stanzerei.herokuapp.com' }
 
   config.action_mailer.smtp_settings = {
     address:              'smtp.gmail.com',
     port:                 587,
-    domain:               'localhost',
-    user_name:            'elisabethopinc@gmail.com',
+    domain:               'stanzerei.herokuapp.com',
+    user_name:            ENV['MAILER_USER'],
     password:             ENV['MAILER_KEY'],
     authentication:       'plain',
     enable_starttls_auto: true
@@ -98,6 +98,8 @@ Rails.application.configure do
   # Use a different logger for distributed setups.
   # require "syslog/logger"
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new "app-name")
+
+  config.force_ssl = true
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
